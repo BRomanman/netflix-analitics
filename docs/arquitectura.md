@@ -10,9 +10,8 @@ Netflix Analytics Dashboard es una solución de análisis de datos que integra i
 
 Archivo:
 
-```text
 data/netflix_titles.csv
-```
+
 
 Contiene información histórica del catálogo Netflix:
 
@@ -28,15 +27,13 @@ Contiene información histórica del catálogo Netflix:
 
 Base de datos:
 
-```text
 data/catalogo_netflix.db
-```
+
 
 Tabla:
 
-```text
 historial_visualizaciones
-```
+
 
 Contiene:
 
@@ -48,9 +45,8 @@ Contiene:
 
 API REST:
 
-```text
 https://api.tvmaze.com
-```
+
 
 Información obtenida:
 
@@ -72,15 +68,13 @@ Información obtenida:
 
 Archivo:
 
-```text
 data/dataset_final_dashboard.db
-```
+
 
 Tabla:
 
-```text
 vista_dashboard
-```
+
 
 ## Dashboard
 

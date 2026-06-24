@@ -35,9 +35,8 @@ python dashboards/app.py
 
 Abrir navegador:
 
-```text
 http://localhost:8050
-```
+
 
 ## Indicadores disponibles
 
