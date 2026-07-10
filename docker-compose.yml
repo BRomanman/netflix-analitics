@@ -15,3 +15,24 @@ services:
 
     volumes:
       - ./data:/app/data
+      - ./models:/app/models
+
+  netflix-ml-api:
+
+    build: .
+
+    container_name: netflix-ml-api
+
+    command: ["python", "api/api_ml.py"]
+
+    ports:
+      - "5001:5001"
+
+    restart: unless-stopped
+
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+
+    depends_on:
+      - netflix-dashboard

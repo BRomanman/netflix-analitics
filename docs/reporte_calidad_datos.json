@@ -1,0 +1,39 @@
+{
+  "fecha_ejecucion": "2026-07-09T22:34:27.502982",
+  "duracion_segundos": 29.57,
+  "filas_procesadas": 30,
+  "titulos_sin_coincidencia_catalogo": 0,
+  "tasa_exito_api_tvmaze_pct": 53.3,
+  "nulos_por_columna_catalogo_original": {
+    "show_id": 0,
+    "type": 0,
+    "title": 0,
+    "director": 2634,
+    "cast": 825,
+    "country": 831,
+    "date_added": 10,
+    "release_year": 0,
+    "rating": 4,
+    "duration": 3,
+    "listed_in": 0,
+    "description": 0
+  },
+  "nulos_por_columna_dataset_final": {
+    "title": 0,
+    "visualizaciones": 0,
+    "show_id": 0,
+    "type": 0,
+    "director": 0,
+    "cast": 3,
+    "country": 0,
+    "date_added": 0,
+    "release_year": 0,
+    "rating": 0,
+    "duration": 0,
+    "listed_in": 0,
+    "description": 0,
+    "tvmaze_rating": 21,
+    "tvmaze_language": 14,
+    "tvmaze_status": 14
+  }
+}

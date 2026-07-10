@@ -192,6 +192,40 @@ http://localhost:8050
 
 ---
 
+# 🤖 Modelo de Machine Learning y API
+
+Además del dashboard, el proyecto incorpora un modelo de clasificación
+(scikit-learn) que predice si un título es `Movie` o `TV Show` a partir de
+sus metadatos, comparando 3 algoritmos (Regresión Logística, Random Forest
+con tuning, y Gradient Boosting) y exponiendo el mejor modelo a través de
+una API REST propia.
+
+Documentación detallada:
+
+* `docs/modelo_ml.md` — features, metodología, métricas y hallazgos
+* `docs/api_ml.md` — endpoints de la API
+
+## Entrenar el modelo
+
+```bash
+python models/entrenar_modelo.py
+```
+
+## Levantar la API del modelo
+
+```bash
+python api/api_ml.py
+```
+
+Abrir en el navegador o con curl:
+
+```text
+http://localhost:5001/health
+http://localhost:5001/predict/ejemplo
+```
+
+---
+
 # 🧰 Tecnologías Utilizadas
 
 * Python
@@ -200,6 +234,8 @@ http://localhost:8050
 * Requests
 * Dash
 * Plotly
+* Scikit-learn
+* Flask
 * Docker
 * TVMaze API
 
