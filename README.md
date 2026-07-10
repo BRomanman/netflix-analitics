@@ -226,6 +226,18 @@ http://localhost:5001/predict/ejemplo
 
 ---
 
+# 🔬 Transformaciones Avanzadas
+
+Además del ETL principal, `etl/analisis_avanzado.py` demuestra pivot,
+reshape (melt), procesamiento por chunks y vectorización/broadcasting
+con NumPy sobre el catálogo completo. Ver `docs/transformaciones_avanzadas.md`.
+
+```bash
+python etl/analisis_avanzado.py
+```
+
+---
+
 # 🧰 Tecnologías Utilizadas
 
 * Python

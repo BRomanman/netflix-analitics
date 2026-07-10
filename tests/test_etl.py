@@ -98,5 +98,45 @@ class TestLimpiarDatos(unittest.TestCase):
         self.assertTrue(pd.isna(df_original.loc[0, "country"]))
 
 
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "etl"))
+from analisis_avanzado import calcular_score_popularidad, generar_pivot  # noqa: E402
+
+
+class TestTransformacionesAvanzadas(unittest.TestCase):
+
+    def test_pivot_incluye_totales_y_sin_nulos(self):
+        df = pd.DataFrame({
+            "show_id": ["s1", "s2", "s3"],
+            "release_year": [2015, 2015, 2021],
+            "rating": ["PG-13", "PG-13", "TV-MA"],
+        })
+        pivot = generar_pivot(df)
+        self.assertIn("Total", pivot.index)
+        self.assertIn("Total", pivot.columns)
+        self.assertFalse(pivot.isnull().any().any())
+
+    def test_pivot_cuenta_correctamente(self):
+        df = pd.DataFrame({
+            "show_id": ["s1", "s2", "s3"],
+            "release_year": [2015, 2016, 2021],
+            "rating": ["PG-13", "PG-13", "TV-MA"],
+        })
+        pivot = generar_pivot(df)
+        # decada 2010 (2015 y 2016) deberia tener 2 en PG-13
+        self.assertEqual(pivot.loc[2010, "PG-13"], 2)
+
+    def test_score_popularidad_es_z_score_valido(self):
+        df = pd.DataFrame({
+            "title": ["A", "B", "C"],
+            "visualizaciones": [1000, 5000, 9000],
+        })
+        resultado = calcular_score_popularidad(df)
+        # El titulo con mas visualizaciones debe tener el score mas alto
+        self.assertEqual(resultado.iloc[0]["title"], "C")
+        # El score 0-100 debe estar siempre en ese rango
+        self.assertTrue((resultado["popularidad_score_0_100"] >= 0).all())
+        self.assertTrue((resultado["popularidad_score_0_100"] <= 100).all())
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
